@@ -1,10 +1,9 @@
-name: Build and Deploy Astro Site
+name: Deploy Astro Site to GitHub Pages
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:  # This allows manual triggering of the workflow
 
 jobs:
   build-and-deploy:
@@ -30,3 +29,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
